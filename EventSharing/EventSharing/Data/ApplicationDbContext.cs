@@ -1,10 +1,11 @@
 ﻿using EventSharing.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using EventSharing.ViewModels;
 
 namespace EventSharing.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,7 +24,7 @@ namespace EventSharing.Data
                 .HasOne(e => e.Creator)
                 .WithMany(u => u.CreatedEvents);
 
-            //Soit en créant comme ça soit avec des annotations dans les modèles
+            //Soit en cr�ant comme �a soit avec des annotations dans les mod�les
             builder.Entity<Category>()
                 .Property(c => c.Name)
                 .HasMaxLength(256)

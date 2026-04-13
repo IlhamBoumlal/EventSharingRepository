@@ -1,4 +1,4 @@
-﻿namespace EventSharing.Models
+namespace EventSharing.Models
 {
     public class Category
     {
